@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maria Morozova Ongoing Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2a2df8;
+      --accent: #f2a365;
+      --bg: #fff;
+      --text: #111;
+      --muted: #666;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
+      color: var(--color-text-primary);
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: #222;
+      color:#fff;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: var(--color-nav-link);
+      text-decoration: none;
+      margin-right: 2rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+      outline-offset: 2px;
+    }
+    nav a:hover{color: var(--accent);}
+    nav a:focus-visible {
+      color: var(--color-nav-link-hover);
+      outline: 2px solid var(--color-nav-link-hover);
+      outline-offset: 4px;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 400px;
+      height: calc(100vh - 60px);
+      padding: 4rem 2.5rem;
+    background: #f9f9f9;      border-right: 1px solid #ddd;
+      overflow-y: auto;
+    }
+
+
+    .sidebar h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .rightbar {
+      position: fixed;
+      top: 60px;
+      right: 0;
+      width: 280px;
+      height: calc(100vh - 60px);
+      padding: 4rem 2rem;
+      background-color: var(--color-bg-rightbar);
+      border-left: 1px solid #ddd;
+      overflow-y: auto;
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+    }
+
+    .rightbar h3 {
+      margin: 0 0 1rem 0;
+      font-weight: 500;
+      font-size: 1.5rem;
+      font-family: 'Raleway', sans-erif;
+      color: var(--color-text-primary);
+    }
+
+    .rightbar p, .rightbar ul {
+      margin: 0 0 1rem 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .rightbar ul {
+      padding-left: 1.2rem;
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 2rem;
+    }
+    .rightbar li {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        }
+    .rightbar li strong {
+    color: var(--primary);
+    }
+    .rightbar a {
+      color: var(--color-text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .rightbar a:hover,
+    .rightbar a:focus-visible {
+      border-bottom: 1px solid var(--color-text-primary);
+      outline: none;
+    }
+
+    main {
+      margin-left: 400px;
+      margin-right: 280px;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5rem;
+      max-width: calc(100% - 680px);
+    }
+
+    .project {
+      font-size: 1.5rem;
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+    }
+        .project h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .project p {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-top: 1cm;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: #fff;
+      user-select: none;
+    }
+
+    .carousel.horizontal {
+      width: 100%;
+      height: 400px;
+    }
+
+    .carousel.vertical {
+      width: 300px;
+      height: 600px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .carousel img.active {
+      display: block;
+    }
+
+    .nav-buttons {
+      position: absolute;
+      display: flex;
+      z-index: 10;
+      pointer-events: auto;
+    }
+
+    .carousel.horizontal .nav-buttons {
+      top: 50%;
+      left: 0;
+      right: 0;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 1rem;
+    }
+
+    .carousel.horizontal .nav-buttons button {
+      background-color: var(--color-button-bg);
+      color: #fff;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      transition: background 0.2s;
+      outline-offset: 2px;
+    }
+
+    .carousel.horizontal .nav-buttons button:hover,
+    .carousel.horizontal .nav-buttons button:focus-visible {
+      background-color: var(--color-button-bg-hover);
+      outline: 2px solid var(--color-button-bg-hover);
+    }
+
+ 
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      .rightbar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-left: none;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      main {
+        margin: 0;
+        max-width: 100%;
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav role="navigation" aria-label="Menu principal">
+        <a href="aboutme.html">About me</a>
+    <a href="portfolio.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <aside id="about" class="sidebar" aria-labelledby="sidebar-title">
+    <h1 id="sidebar-title">Design of tangible geospatial interactions</h1>
+    <p>This research project, held at Luxembourg Institut of Science and Technology (LIST), aims to develop innovative interactions with GIS (Geographic Information System)-based systems within the context of participatory urban planning. These interactions are designed for tangible tabletops and multi-display environments to enhance collaboration and support effective decision-making processes.</p>
+  </aside>
+
+  <main id="projects" tabindex="-1" aria-label="Projets">
+     <div class="project">
+      <h2 style="margin-top: 2cm;">Design of tangible geospatial interactions <i>(in progress)</i></h2>
+      <div class="carousel horizontal" data-index="0">
+        <a href="ongoing.html">
+        <img src="./images/ONGOING.png" class="active" alt="Slide 1" />
+          </a>
+      </div>
+    </div>
+      <p>
+        Our team works with tabletops and transparent tokens to explore innovative ways of interacting with map-based systems. Currently, we are in the ideation phase, during which two functional prototypes featuring one to three tangible interactions will be developed to determine the most effective approach.
+Thanks to interviews conducted with specialists from diverse fields, we have gathered valuable insights and requirements regarding these systems.
+      </p>
+    </section>
+  </main>
+
+  <aside id="contact" class="rightbar" aria-labelledby="contact-title">
+    <h3 id="contact-title">Work done</h3>
+    <ul>
+      <li><strong>1</strong> State of the art on Tangible interactions in multi-display environments</li>
+      <li><strong>4</strong> Interviews with specialists from the following domains : urban planning, logitics, ecology, energy</li>
+      <li><strong>3</strong> Paper prototypes of a "timeline" feature to test which one is better</li>
+    </ul>
+
+    <h3>Goals</h3>
+    <ul>
+      <li><strong>2</strong> High-fidelity functional prototypes using JavaScript and its libraries</li>
+      <li><strong>2</strong> Sessions of users tests</li>
+      <li>Scientific paper about designed interactions and their evaluation for the HCI conference</li>
+    </ul>
+  </aside>
+
+  <script>
+    (() => {
+      const carousels = document.querySelectorAll('.carousel');
+
+      carousels.forEach(carousel => {
+        let index = 0;
+        const slides = carousel.querySelectorAll('img');
+        let intervalId = null;
+        const INTERVAL_DELAY = 3000;
+        let userInteracted = false;
+
+        function updateSlides(newIndex) {
+          slides[index].classList.remove('active');
+          index = newIndex;
+          slides[index].classList.add('active');
+          carousel.dataset.index = index;
+        }
+
+        function next() {
+          updateSlides((index + 1) % slides.length);
+        }
+
+        function prev() {
+          updateSlides((index - 1 + slides.length) % slides.length);
+        }
+
+        function startAutoSlide() {
+          intervalId = setInterval(() => {
+            if (!userInteracted) next();
+          }, INTERVAL_DELAY);
+        }
+
+        function stopAutoSlide() {
+          clearInterval(intervalId);
+        }
+
+        startAutoSlide();
+
+        const prevBtn = carousel.querySelector('.nav-buttons .prev');
+        const nextBtn = carousel.querySelector('.nav-buttons .next');
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', () => {
+            userInteracted = true;
+            stopAutoSlide();
+            prev();
+          });
+          prevBtn.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              prevBtn.click();
+            }
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', () => {
+            userInteracted = true;
+            stopAutoSlide();
+            next();
+          });
+          nextBtn.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              nextBtn.click();
+            }
+          });
+        }
+
+   
+
+        carousel.tabIndex = 0;
+      });
+    })();
+  </script>
+</body>
+</html>

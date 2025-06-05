@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maria Morozova Airbus Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2a2df8;
+      --accent: #f2a365;
+      --bg: #fff;
+      --text: #111;
+      --muted: #666;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #222;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    nav a {
+      color: #fff;
+      margin-right: 2rem;
+      font-size: 1.1rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .sidebar, .rightbar {
+      position: fixed;
+      top: 60px;
+      bottom: 0;
+      overflow-y: auto;
+      padding: 3rem 2rem;
+      background: #f9f9f9;
+    }
+
+    .sidebar {
+      left: 0;
+      width: 400px;
+      border-right: 1px solid #ddd;
+    }
+
+    .rightbar {
+      right: 0;
+      width: 280px;
+      border-left: 1px solid #ddd;
+    }
+
+    .sidebar h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .cv-button {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+    }
+
+    .cv-button:hover {
+      background-color: #1a1ce0;
+    }
+
+    main {
+      margin: 60px 280px 0 400px;
+      padding: 4rem 2rem;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .project {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .project h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .project p {
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      margin: 2rem auto;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      width: 100%;
+      height: 400px;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      transition: opacity 0.5s;
+    }
+
+    .carousel img.active {
+      display: block;
+    }
+
+    .nav-buttons {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 1rem;
+    }
+
+    .nav-buttons button {
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+
+    .rightbar h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .rightbar ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 2rem;
+    }
+
+    .rightbar li {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .rightbar li strong {
+      color: var(--primary);
+    }
+
+    @keyframes fadeIn {
+      0% {opacity: 0; transform: translateY(20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="aboutme.html">About me</a>
+    <a href="portfolio.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <aside class="sidebar" id="about">
+    <h1>Digital Catalogue for Airbus</h1>
+    <p>High-fidelity prototype designed in Figma for Airbus by four Master's students from ENAC.</p>
+    <h3 style="margin-top: 2rem;">Client's feedback</h3>
+    <a href="./images/20250404 Lettre de recommendation Maria MOROZOVA.pdf" download class="cv-button">Recommendation letter</a>
+  </aside>
+
+  <main id="projects">
+    <div class="project">
+      <h2>Interactive Prototype</h2>
+      <div class="carousel" data-index="0">
+        <img src="./images/aibus.png" class="active" alt="Slide 1" />
+        <img src="./images/aibus2.png" alt="Slide 2" />
+        <img src="./images/airbus3.png" alt="Slide 3" />
+        <img src="./images/airbus4.png" alt="Slide 4" />
+        <div class="nav-buttons">
+          <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+          <button class="next" onclick="nextSlide(this)">&#10095;</button>
+        </div>
+      </div>
+      <p>
+        As part of our final-year Master's project, our team collaborated with Airbus on a design challenge.
+        We developed an intuitive, digital version of their avionic options catalogue to enhance commercial meetings.
+        The result: a high-fidelity, interactive prototype now being used as the base for the final system.
+      </p>
+    </div>
+  </main>
+
+  <aside class="rightbar" id="contact">
+    <h3>Work done</h3>
+    <ul>
+      <li><strong>18</strong> interviews with Airbus teams</li>
+      <li>Co-creation workshops & ideation sessions</li>
+      <li><strong>4</strong> low-fidelity prototypes</li>
+      <li><strong>2</strong> mid-fidelity prototypes</li>
+      <li><strong>1</strong> high-fidelity Figma prototype</li>
+    </ul>
+
+    <h3>Results</h3>
+    <ul>
+      <li>Validated and approved by Airbus</li>
+      <li>Used to initiate development of the final tool</li>
+    </ul>
+  </aside>
+
+  <script>
+    function nextSlide(button) {
+      const carousel = button.closest('.carousel');
+      const slides = carousel.querySelectorAll('img');
+      let index = parseInt(carousel.dataset.index, 10);
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+      carousel.dataset.index = index;
+    }
+
+    function prevSlide(button) {
+      const carousel = button.closest('.carousel');
+      const slides = carousel.querySelectorAll('img');
+      let index = parseInt(carousel.dataset.index, 10);
+      slides[index].classList.remove('active');
+      index = (index - 1 + slides.length) % slides.length;
+      slides[index].classList.add('active');
+      carousel.dataset.index = index;
+    }
+
+    // Auto-slide
+    setInterval(() => {
+      document.querySelectorAll('.carousel').forEach(carousel => {
+        const slides = carousel.querySelectorAll('img');
+        let index = parseInt(carousel.dataset.index, 10);
+        slides[index].classList.remove('active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('active');
+        carousel.dataset.index = index;
+      });
+    }, 4000);
+  </script>
+</body>
+</html>

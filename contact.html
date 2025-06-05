@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maria Morozova – Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet" />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
+      color: #111;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: #222;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 2rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      color: #f2a365;
+    }
+
+    main {
+      padding: 6rem 2rem 4rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    input, textarea {
+      font-family: 'Montserrat', sans-serif;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      padding: 0.8rem;
+      background-color: #222;
+      color: #fff;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #444;
+    }
+
+    .contact-info {
+      margin-top: 3rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+    }
+
+    .contact-info a {
+      color: #411bff;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="aboutme.html">About me</a>
+    <a href="portfolio.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <h1>Contact Me</h1>
+
+    <form action="mailto:morozova.marie7@gmail.com" method="POST" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+
+    <div class="contact-info">
+      <h2>Other ways to reach me</h2>
+      <p>Email: <a href="mailto:morozova.marie7@gmail.com">morozova.marie7@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/maria-morozova7" target="_blank">linkedin.com/in/maria-morozova7</a></p>
+    </div>
+  </main>
+</body>
+</html>

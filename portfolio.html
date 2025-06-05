@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maria Morozova – Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Playfair+Display:wght@300&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+    
+      background-color: #fff;
+      color: #111;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: #222;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 2rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f2a365;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 400px;
+      height: calc(100vh - 60px);
+      padding: 4rem 2.5rem;
+      background-color: #f9f9f9;
+      border-right: 1px solid #ddd;
+      overflow-y: auto;
+    }
+
+    .sidebar h1 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 4rem;
+      margin: 0 0 1.5rem 0;
+      line-height: 1.1;
+    }
+
+    .sidebar p {
+      font-size: 1.3rem;
+      color: #555;
+      margin: 0;
+      max-width: 280px;
+    }
+
+    .rightbar {
+      position: fixed;
+      top: 60px;
+      right: 0;
+      width: 280px;
+      height: calc(100vh - 60px);
+      padding: 4rem 2rem;
+      background-color: #f4f4f4;
+      border-left: 1px solid #ddd;
+      overflow-y: auto;
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+    }
+
+    .rightbar h3 {
+      margin: 0 0 1rem 0;
+      font-weight: 500;
+      font-size: 1.5rem;
+      font-family: 'Raleway', sans-serif;
+      color: #111;
+    }
+
+    .rightbar p, .rightbar ul {
+      margin: 0 0 1rem 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .rightbar ul {
+      padding-left: 1.2rem;
+    }
+
+    .rightbar a {
+      color: #111;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .rightbar a:hover {
+      border-bottom: 1px solid #111;
+    }
+
+    main {
+      margin-left: 400px;
+      margin-right: 280px;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5rem;
+      max-width: calc(100% - 680px); /* Pour éviter de dépasser les colonnes */
+    }
+
+    .project {
+      color:#555;
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 1.2rem;
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: #fff;
+    }
+
+    .carousel.horizontal {
+      width: 100%;
+      height: 400px;
+    }
+
+    .carousel.vertical {
+      width: 300px;
+      height: 600px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      user-select: none;
+    }
+
+    .carousel img.active {
+      display: block;
+    }
+
+    .nav-buttons {
+      position: absolute;
+      display: flex;
+      z-index: 10;
+    }
+
+    .carousel.horizontal .nav-buttons {
+      top: 50%;
+      left: 0;
+      right: 0;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 1rem;
+    }
+
+    .carousel.horizontal .nav-buttons button{
+      background-color: rgba(0,0,0,0.4);
+      color: #fff;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      transition: background 0.2s;
+    }
+
+    .carousel.horizontal .nav-buttons button:hover {
+      background-color: rgba(0,0,0,0.6);
+    }
+
+.carousel.vertical .nav-buttons {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  z-index: 20;
+}
+
+
+.carousel.vertical .nav-buttons button {
+  background-color: rgba(0,0,0,0.4);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transition: background 0.2s;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+    .carousel-vertical .nav-buttons button.prev {
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .carousel-vertical .nav-buttons button.next {
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .nav-buttons button:hover {
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .cv-button {
+      display: inline-block;
+      background-color: #2a2df8;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+    }
+
+    .cv-button:hover {
+      background-color: #1a1ce0;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="aboutme.html">About me</a>
+    <a href="portfolio.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <aside id="about" class="sidebar">
+    <h1>Maria Morozova</h1>
+    <p>Webdesigner & UI/UX enthusiast. Passionate about clean, modern interfaces.</p>
+  </aside>
+
+  <main id="projects">
+    
+    <div class="project">
+      <h2>Digital catalogue for Airbus</h2>
+      <div class="carousel horizontal" data-index="0">
+        <a href="about.html">
+        <img src="./images/aibus.png" class="active" alt="Slide 1" />
+          </a>
+          <a href="about.html">
+        <img src="./images/aibus2.png" alt="Slide 2" />
+          </a>
+          <a href="about.html">
+        <img src="./images/airbus3.png" alt="Slide 3" />
+          </a>
+          <a href="about.html">
+        <img src="./images/airbus4.png" alt="Slide 4" />
+          </a>
+
+        <div class="nav-buttons">
+          <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+          <button class="next" onclick="nextSlide(this)">&#10095;</button>
+        </div>
+      </div>
+    </div>
+<div class="project">
+      <h2>Design of tangible geospatial interactions <i>(in progress)</i></h2>
+      <div class="carousel horizontal" data-index="0">
+        <a href="ongoing.html">
+        <img src="./images/ONGOING.png" class="active" alt="Slide 1" />
+          </a>
+      </div>
+    </div>
+    <div class="project">
+      <h2>Virtual Fitting Room</h2>
+      <div class="carousel vertical" data-index="0">
+          <a href="fitting-room.html">
+            <img src="./images/fitting-room.png" class="active" alt="Slide 1" />
+          </a>
+          <a href="fitting-room.html">
+            <img src="./images/fitting-room2.png" alt="Slide 2" />
+          </a>
+          <a href="fitting-room.html">
+            <img src="./images/fitting-room3.png" alt="Slide 3" />
+          </a>
+          <a href="fitting-room.html">
+            <img src="./images/fitting-room4.png" alt="Slide 4" />
+          </a>
+          <a href="fitting-room.html">
+        <img src="./images/fitting-room5.png" alt="Slide 5" />
+          </a>
+          <a href="fitting-room.html">
+        <img src="./images/fitting-room6.png" alt="Slide 6" />
+          </a>
+          <a href="fitting-room.html">
+        <img src="./images/fitting-room7.png" alt="Slide 7" />
+          </a>
+        <div class="nav-buttons">
+          <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+          <button class="next" onclick="nextSlide(this)">&#10095;</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside id="contact" class="rightbar">
+    
+    <h3>Some of my skills in coding</h3>
+    <ul>
+      <li>HTML / CSS / JavaScript / PHP</li>
+      <li>React.js</li>
+      <li>Node.js</li>
+      <li>PHP Symfony</li>
+      <li>Java</li>
+      <li>Python</li>
+    </ul>
+
+    <h3>Design</h3>
+    <ul>
+      <li>Figma</li>
+      <li>Adobe Photoshop / Illustrator / Animate</li>
+    </ul>
+
+    <h3>For more information</h3>
+    <a style="margin-bottom: 1cm; color: white;" href="./images/CV_Maria_Morozova.pdf" download class="cv-button">Check my CV</a>
+    <h3>Contact</h3>
+    <p>Email: <a href="mailto:morozova.marie7@gmail.com">morozova.marie7@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/maria-morozova7" target="_blank">linkedin.com/in/maria-morozova7</a></p>
+
+  </aside>
+
+  <script>
+    function nextSlide(button) {
+      const carousel = button.closest('.carousel');
+      const slides = carousel.querySelectorAll('img');
+      let index = parseInt(carousel.dataset.index, 10);
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+      carousel.dataset.index = index;
+    }
+
+    function prevSlide(button) {
+      const carousel = button.closest('.carousel');
+      const slides = carousel.querySelectorAll('img');
+      let index = parseInt(carousel.dataset.index, 10);
+      slides[index].classList.remove('active');
+      index = (index - 1 + slides.length) % slides.length;
+      slides[index].classList.add('active');
+      carousel.dataset.index = index;
+    }
+
+    setInterval(() => {
+      document.querySelectorAll('.carousel').forEach(carousel => {
+        const slides = carousel.querySelectorAll('img');
+        let index = parseInt(carousel.dataset.index, 10);
+        slides[index].classList.remove('active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('active');
+        carousel.dataset.index = index;
+      });
+    }, 3000);
+  </script>
+</body>
+</html>

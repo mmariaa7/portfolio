@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maria Morozova – About me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Playfair+Display:wght@300&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
+      color: #111;
+      scroll-behavior: smooth;
+    }
+ .cv-button {
+      display: inline-block;
+      background-color: #2a2df8;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+    }
+
+    .cv-button:hover {
+      background-color: #1a1ce0;
+      color: white;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: #222;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 2rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f2a365;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 280px;
+      height: calc(100vh - 60px);
+      padding: 4rem 2.5rem;
+      background-color: #f9f9f9;
+      border-right: 1px solid #ddd;
+      overflow-y: auto;
+    }
+
+    .sidebar h1 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 1.5rem;
+      margin: 0 0 1.5rem 0;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .sidebar p {
+   
+      color: #555;
+      margin: 0;
+      max-width: 280px;
+    }
+
+    .rightbar {
+      position: fixed;
+      top: 60px;
+      right: 0;
+      width: 280px;
+      height: calc(100vh - 60px);
+      padding: 4rem 2rem;
+      background-color: #f4f4f4;
+      border-left: 1px solid #ddd;
+      overflow-y: auto;
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+    }
+
+    .rightbar h3 {
+      margin: 0 0 1rem 0;
+      font-weight: 500;
+      font-size: 1.5rem;
+      font-family: 'Raleway', sans-serif;
+      color: #111;
+      text-align: center;
+    }
+
+    .rightbar p, .rightbar ul {
+      margin: 0 0 1rem 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .rightbar ul {
+      padding-left: 1.2rem;
+    }
+
+    .rightbar a {
+      color: #111;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .rightbar a:hover {
+      border-bottom: 1px solid #111;
+    }
+
+    main {
+      margin-left: 400px;
+      margin-right: 280px;
+      padding: 4rem 2rem;
+      max-width: calc(100% - 680px);
+    }
+
+    .about-content {
+      color: #555;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-content h2 {
+      font-size: 2rem;
+      font-family: 'Raleway', sans-serif;
+      margin-bottom: 1.5rem;
+      color: #111;
+    }
+
+    .edu-timeline {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  margin: 3rem auto;
+  flex-wrap: wrap;
+}
+
+.edu-bubble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.edu-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.edu-logo img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.edu-caption {
+  font-size: 1rem;
+  color: #333;
+  max-width: 200px;
+}
+
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="aboutme.html">About me</a>
+    <a href="portfolio.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <aside class="sidebar">
+    <h1>My Experience</h3>
+    <div class="edu-timeline">
+
+  <div class="edu-bubble">
+    <div class="edu-logo">
+      <img src="images/unnamed.jpg" alt="LIST" />
+    </div>
+    <div class="edu-caption">
+        Luxembourg Institut of Science and Technology (LIST)
+     <br><small>(04.2025-10.2025)</small>
+     <p style="margin-top: 0.5cm;color:#411bff"> Internship - Design of tangible geospatial interactions for multi-display environments</p>
+    </div>
+  </div>
+    <div class="edu-bubble">
+    <div class="edu-logo">
+      <img src="images/1631355748527.jpg" alt="Agileo Solutions"/></div>
+    <div class="edu-caption">
+      Agileo Solutions<br><small>(05.2024-08.2024)</small>
+    <p style="margin-top: 0.5cm;color:#411bff">Internship - Design of interfaces for SAAS systems</p>
+
+    </div>
+  </div>
+  <div class="edu-bubble">
+    <div class="edu-logo">
+      <img src="images/paul-sabatier-university.jpg" alt="INSA Toulouse" />
+    </div>
+    <div class="edu-caption">
+      National Institute of Applied Sciences of Toulouse (INSA) <br><small>(05.2022-07.2022)</small>
+    <p style="margin-top: 0.5cm;color:#411bff"> Internship - Development of a graphic interface for a file-management software (Python) </p>
+
+    </div>
+  </div>
+    </div></aside>
+
+  <main>
+    <div class="about-content">
+      <h2>Who am I?</h2>
+      <p>
+        I am Maria Morozova, a creative and detail-oriented web designer and UI/UX specialist currently pursuing a Master's in Human-Computer Interaction. I have a strong background in front-end development and digital design, and I'm particularly interested in creating user-friendly and aesthetically pleasing digital experiences.
+      </p>
+
+      <p>
+        My work ranges from designing intuitive interfaces for industrial platforms to experimenting with innovative interactions like tangible geospatial systems. I strive to bridge the gap between functionality and visual storytelling in every project I take on.
+      </p>
+
+      <p>
+        I love working with design tools like Figma and Adobe Creative Suite, and I bring my designs to life through the programming languages I’ve mastered during my academic and professional journey.
+      </p>
+      <p>
+        My research experience allowed me to explore existing innovations and develop my own vision to create new things.    
+    </p>
+    <a style="margin-bottom: 1cm; color: white;" href="./images/CV_Maria_Morozova.pdf" download class="cv-button">Check my CV</a>
+    </div>
+  </main>
+
+  <aside id="contact" class="rightbar">
+    </li>
+    </ul>
+    <h3>My studies</h3>
+    <div class="edu-timeline">
+  
+
+  <div class="edu-bubble">
+    <div class="edu-logo">
+      <img src="images/ENAC-Toulouse-logo.jpg" alt="ENAC" />
+    </div>
+    <div class="edu-caption">
+       French Civil Aviation University
+     <strong>ENAC</strong> <br><small>(2024–2025)</small>
+     <p style="margin-top: 0.5cm;color:#411bff"> Master's degree in Computer Science (Human-Computer Interaction specialization)</p>
+    </div>
+  </div>
+    <div class="edu-bubble">
+    <div class="edu-logo">
+      <img src="images/paul-sabatier-university.jpg" alt="Université Toulouse III - Paul Sabatier" />
+    </div>
+    <div class="edu-caption">
+      University of Toulouse Paul Sabatier<br><small>(2023–2025)</small>
+    <p style="margin-top: 0.5cm;color:#411bff"> Master's degree in Computer Science (Human-Computer Interaction specialization)</p>
+
+    </div>
+  </div>
+  <div class="edu-bubble">
+    <div class="edu-logo">
+      <img src="images/paul-sabatier-university.jpg" alt="Université Lyon 2" />
+    </div>
+    <div class="edu-caption">
+      University of Toulouse Paul Sabatier<br><small>(2020–2023)</small>
+    <p style="margin-top: 0.5cm;color:#411bff"> Bachelor's degree in Computer Science </p>
+
+    </div>
+  </div>
+
+  </aside>
+</body>
+</html>
